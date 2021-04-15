@@ -1,26 +1,26 @@
-import {
-  Component,
-  Input,
-  OnChanges,
-  OnInit,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, ContentChild, Input, OnInit } from '@angular/core';
+import { InnerTextComponent } from '../inner-text/inner-text.component';
 
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.sass'],
 })
-export class BookListComponent implements OnChanges, OnInit {
-  @Input() bookList: string[] = [];
+export class BookListComponent implements OnInit {
+  @Input() bookList: any[] = [];
+  @ContentChild(InnerTextComponent) innerTextElement: any;
 
   constructor() {}
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(this.bookList);
-    console.log(changes);
-    console.log('ngOnChange');
+  ngOnInit(): void {}
+
+  ngAfterContentInit() {
+    this.bookList = ['网络是怎样连接的'];
+    console.log(this.innerTextElement);
+    console.log('contentInit');
   }
 
-  ngOnInit(): void {}
+  ngAfterContentChecked() {
+    console.log('contentChecked');
+  }
 }
