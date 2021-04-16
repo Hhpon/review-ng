@@ -1,4 +1,14 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, ContentChild, DoCheck, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterContentChecked,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  ContentChild,
+  DoCheck,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { BookListComponent } from '../book-list/book-list.component';
 import { InnerTextComponent } from '../inner-text/inner-text.component';
 
@@ -26,7 +36,8 @@ export class LearnHookComponent
   oldTestValue: string;
   obj: testObj = { value: '' };
 
-  @ViewChild(BookListComponent) bookListElement: any;
+  @ViewChild(BookListComponent)
+  bookListElement: any;
   @ContentChild(InnerTextComponent) innerTextElement: any;
 
   constructor() {
